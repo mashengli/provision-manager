@@ -1,0 +1,22 @@
+<div ms-controller="front-service-detail-controller">
+    <div class="modal-content">
+        <div class="modal-message error-message">
+            <div>{{@data.bankName}}前置服务:</div>
+        </div>
+        <div class="modal-message error-message">
+            <div>主机名称: {{@data.frontServiceDetail.Environment.MachineName}}, {{@data.frontServiceDetail.Environment.Is64BitProcess ? '64' : '32'}}位处理器</div>
+        </div>
+        <div class="modal-message error-message">
+            <div>操作系统: {{@data.frontServiceDetail.Environment.VersionString}}, {{@data.frontServiceDetail.Environment.Is64BitOperatingSystem ? '64' : '32'}}位</div>
+        </div>
+        <div class="modal-message error-message">
+            <div>数据库连接状态: {{@data.frontServiceDetail.IsDBConnection ? '正常' : '异常'}}</div>
+        </div>
+        <div class="modal-message error-message">
+            <div>银行前置客户端运行状态: {{@data.frontServiceDetail.IsBankClientRuning ? '正常' : '异常'}}</div>
+        </div>
+        <div class="modal-button">
+            <a href="#close-modal" rel="modal:close"><button>确定</button></a>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,24 @@
+<div>
+    <div class="main-content-head"><h4>银行前置服务日志</h4></div>
+
+    <div class="main-content-body front-service-log">
+        <div class="report-head">
+            <div class="report-head-item">
+                <label>选择银行</label>
+                <select name="bank" ms-on-change="@data.selectBank()">
+                    <option ms-for="(index, bank) in @data.bankList"
+                            ms-attr="{'value': index}">
+                        {{bank.Name}}
+                    </option>
+                </select>
+            </div>
+
+            <div class="report-head-item">
+                <label>选择日期</label>
+                <input id="datetime" class="datetime-picker" type="text" readonly>
+            </div>
+        </div>
+
+        <div class="report-body" ms-html="@data.frontServiceLog"></div>
+    </div>
+</div>

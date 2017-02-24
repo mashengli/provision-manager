@@ -1,0 +1,51 @@
+<div>
+    <div class="main-content-head"><h4>银行余额</h4></div>
+
+    <div class="main-content-body">
+        <div class="report-head">
+            <div class="report-head-item">
+                <label>选择银行</label>
+                <select name="bank" ms-on-change="@data.selectBank()">
+                    <option ms-for="(index, bank) in @data.bankList"
+                            ms-attr="{'value': index}">
+                        {{bank.Name}}
+                    </option>
+                </select>
+            </div>
+
+            <div class="report-head-item">
+                <label>选择账户</label>
+                <select name="account" ms-on-change="@data.selectAccount()">
+                    <option ms-for="(index, account) in @data.accountList"
+                            ms-attr="{'value': index}">
+                        {{account.AccNo}}
+                    </option>
+                </select>
+            </div>
+
+            <div class="report-head-item">
+                <label>时间区间</label>
+                <input id="datetime-start" class="datetime-picker" type="text" readonly>
+                <hr class="datetime-separator"/>
+                <input id="datetime-end" class="datetime-picker" type="text" readonly>
+            </div>
+        </div>
+
+        <div class="report-body">
+            <table class="b2e-table">
+                <thead>
+                <tr>
+                    <th ms-for="key in @data.balanceKeyList" nowrap="nowrap">{{key}}</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ms-for="detail in @data.bankBalanceList">
+                    <td ms-for="key in @data.balanceKeyList" nowrap="nowrap">{{detail[key]}}</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="pagination" id="pagination"></div>
+    </div>
+</div>

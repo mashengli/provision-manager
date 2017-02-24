@@ -1,0 +1,35 @@
+<div>
+    <div class="main-content-head"><h4>银行前置服务</h4></div>
+
+    <div class="main-content-body">
+        <div class="report-body">
+            <table>
+                <thead>
+                <tr>
+                    <th nowrap="nowrap">银行名称</th>
+                    <th nowrap="nowrap">状态</th>
+                    <th>描述</th>
+                    <th nowrap="nowrap">操作</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ms-for="frontService in @data.frontServiceList">
+                    <td nowrap="nowrap">
+                        <a ms-click="@getServiceDetail(frontService.Type, frontService.Name)">{{frontService.Name}}</a>
+                    </td>
+                    <td ms-if="frontService.State" nowrap="nowrap">
+                        <img class="icon" src="../image/round_check_fill.png">正常
+                    </td>
+                    <td ms-if="!frontService.State">
+                        <img class="icon" src="../image/round_close_fill.png">异常
+                    </td>
+                    <td>{{frontService.StateInfo}}</td>
+                    <td nowrap="nowrap">
+                        <a ms-click="@refreshService(frontService.Type)">刷新</a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

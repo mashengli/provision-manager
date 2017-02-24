@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>钱袋宝备付金管理系统</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width">
+    <link rel="shortcut icon" href="/favicon.ico"><link href="/css/app.1.0.0.css?880ad106310f00af44da" rel="stylesheet"></head>
+    <body>
+        <div class="container">
+            <div class="header">
+	<div class="header-left">
+		<a href="#!/">
+			<img class="logo" src="/image/logo-cd230fef12d4ac22d738d08e5bc56071.png">
+			钱袋宝备付金管理系统
+		</a>
+	</div>
+</div>
+            <div class="content">
+                <div class="left-menu" ms-controller="left-menu-controller">
+	<ul ms-visible="@menuList.length>0">
+	    <div ms-for="(index, menu) in @menuList">
+            <li ms-attr="{'class': menu.active ? 'active' : ''}">
+                <a ms-click="@toggle(index)">
+                    <img ms-if="menu.toggle" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABJ0lEQVRYR+2W4RXBMBSF752ADdgAE2ACRmASTIINmAAbsAEb1ATPeeeE02pTSZPqn75/Pafn5ctNviREw8WGx0cL0CbwSUBEJgDGf9qUF5JnHSsN0AVwBdCrGeIBYEgyyQDoh0nhVDPA9D37HICBWANY1QSxIan9P1VogYjoUgwiQ9xIDr972gD6Zj90IkE8zbrfnQDMUiwAbCMBLEnuinqVHkQicgAwC4Q4kpzbevwCCFUzo5x3AhHUzChXCSBAzZxylQEMhI+ahcqFAriqaVUuCMBDTatywQAGokzNPUk9P5zL+0EiIjY1fyoXJYESNUckdaN6lXcC7+4ikr41nZSLlkAKQmeckNTXVKWqnIBZClUTJHO3nCtNEIDrIGX/tQBtAo0n8AIKc2ghsYU5qQAAAABJRU5ErkJggg==">
+                    <img ms-if="!menu.toggle" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABAUlEQVRYR8XX0RGCMBBF0fc6sgRL0ArEDrQCoRPpwBK0A0rQDrQCnJ2BH2dINtldyTe6Z+SaALHy4srzsQgYx3ELYCD5jkSmAC2AA4AjyXsUIge4TINbkl0EQguQ2QOAPcmnJ6QEIHOlhzPJqxeiFDDPvU1tmAOtBQhEboU5UAtg/jVMgXoATIF6AaoD9QRUBRoBKAo0CqAONBqQDfQfgAeAZmkLjwZ0JOVUXVxRgBeAHUk5wJIrAtADOGkfZDwBn+ley0GlXl6AZGjRDWRDiwKoQ4sAFIXmCagKzQtQHZoHwBSaBdBodzT1H//nwtQ+sJEHT+2O5g6o/cLSz63+dvwFlUKeIePE1BIAAAAASUVORK5CYII=">
+                    {{menu.label}}
+                </a>
+            </li>
+
+            <li ms-if="menu.toggle"
+                ms-for="(subIndex, subMenu) in menu.subMenuList"
+                ms-attr="{'class': subMenu.active ? 'active' : ''}">
+                <a class="sub-menu"
+                    ms-attr="{'href': subMenu.href}"
+                    ms-click="@active(index, subIndex)">
+                    {{subMenu.label}}
+                </a>
+            </li>
+        </div>
+	</ul>
+</div>
+                <div ms-controller="main" class="main-content" ms-html="@template"></div>
+            </div>
+            <div class="footer">
+	<div class="footer-content">
+		<span>
+			©2008-2016&nbsp;&nbsp;北京钱袋宝支付技术有限公司
+		</span>
+	</div>
+</div>
+        </div>
+        <div id="modal"></div>
+        <div id="big-modal"></div>
+    <script type="text/javascript" src="/js/app.1.0.0.js?880ad106310f00af44da"></script></body>
+</html>

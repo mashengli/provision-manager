@@ -1,0 +1,17 @@
+*.iml
+target/
+.idea/
+.svn/
+*.log
+.classpath
+.project
+.settings/
+*.DS_Store
+.externalToolBuilders
+
+web/dist
+web/generate
+web/node_modules
+web/npm-debug.log
+web/server.json
+src/main/webapp/static/
